@@ -11,10 +11,13 @@ const Feed = ({ edges }) => (
           <time className={styles['feed__item-meta-time']} dateTime={moment(edge.node.published_at).format('MMMM D, YYYY')}>
             {moment(edge.node.published_at).format('MMMM YYYY')}
           </time>
-          <span className={styles['feed__item-meta-divider']} />
-          <span className={styles['feed__item-meta-category']}>
-            <Link to={edge.node.primary_tag.slug} className={styles['feed__item-meta-category-link']}>{edge.node.primary_tag.name}</Link>
-          </span>
+          {(() => edge.node.primary_tag
+              && (<>
+                <span className={styles['feed__item-meta-divider']} />
+                <span className={styles['feed__item-meta-category']}>
+                  <Link to={edge.node.primary_tag.slug} className={styles['feed__item-meta-category-link']}>{edge.node.primary_tag.name}</Link>
+                </span>
+              </>))()}
         </div>
         <h2 className={styles['feed__item-title']}>
           <Link className={styles['feed__item-title-link']} to={edge.node.slug}>{edge.node.title}</Link>
