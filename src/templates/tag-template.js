@@ -5,70 +5,48 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
+import { MetaData } from '../components/Meta';
 
-const TagTemplate = ({ data, pageContext }) => {
-  const {
-    title: siteTitle,
-    subtitle: siteSubtitle
-  } = data.site.siteMetadata;
 
-  const {
-    tag,
-    currentPage,
-    prevPagePath,
-    nextPagePath,
-    hasPrevPage,
-    hasNextPage
-  } = pageContext;
-
-  const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}` : `All Posts tagged as "${tag}" - ${siteTitle}`;
+const TagTemplate = ({ data, location, pageContext }) => {
+  const tag = data.ghostTag;
+  const { edges } = data.allGhostPost;
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
-      <Sidebar />
-      <Page title={tag}>
-        <Feed edges={edges} />
-        <Pagination
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-        />
-      </Page>
-    </Layout>
+    <>
+      <MetaData
+        data={data}
+        location={location}
+        type="series"
+      />
+      <Layout>
+        <Sidebar />
+        <Page title={tag}>
+          <Feed edges={edges} />
+          <Pagination pageContext={pageContext} />
+        </Page>
+      </Layout>
+    </>
   );
 };
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
+  query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
+      ghostTag(slug: { eq: $slug }) {
+          ...GhostTagFields
       }
-    }
-    allMarkdownRemark(
-        limit: $postsLimit,
-        skip: $postsOffset,
-        filter: { frontmatter: { tags: { in: [$tag] }, template: { eq: "post" }, draft: { ne: true } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
+      allGhostPost(
+          sort: { order: DESC, fields: [published_at] },
+          filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
+          limit: $limit,
+          skip: $skip
+      ) {
+          edges {
+              node {
+              ...GhostPostFields
+              }
           }
-          frontmatter {
-            title
-            date
-            category
-            description
-          }
-        }
       }
-    }
   }
 `;
 
