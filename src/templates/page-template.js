@@ -9,7 +9,7 @@ import { MetaData } from '../components/Meta';
 const PageTemplate = ({ data, location }) => {
   const page = data.ghostPage;
 
-  const { title: pageTitle, html: pageBody } = page.html;
+  const { title: pageTitle, html: pageBody } = page;
 
   return (
     <>

@@ -21,7 +21,7 @@ const TagTemplate = ({ data, location, pageContext }) => {
       />
       <Layout>
         <Sidebar />
-        <Page title={tag}>
+        <Page title={tag.name}>
           <Feed edges={edges} />
           <Pagination pageContext={pageContext} />
         </Page>

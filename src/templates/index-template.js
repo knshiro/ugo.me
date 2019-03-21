@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import { MetaData } from '../components/Meta'
+import { MetaData } from '../components/Meta';
 
 
 const IndexTemplate = ({ data, location, pageContext }) => {
