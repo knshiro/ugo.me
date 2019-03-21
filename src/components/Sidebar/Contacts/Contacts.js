@@ -14,7 +14,7 @@ const Contacts = ({ contacts }) => (
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Icon icon={getIcon(name)} />
+            <Icon icon={getIcon(name)} title={name}/>
           </a>
         </li>
       ))}
