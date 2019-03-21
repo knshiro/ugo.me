@@ -11,11 +11,10 @@ const Post = ({ post }) => {
   const {
     tags,
     title,
-    date
-  } = post.frontmatter;
-
-  const { html } = post;
-  const { tagSlugs } = post.fields;
+    published_at,
+    slug,
+    html,
+  } = post;
 
   return (
     <div className={styles['post']}>
@@ -26,13 +25,13 @@ const Post = ({ post }) => {
       </div>
 
       <div className={styles['post__footer']}>
-        <Meta date={date} />
-        <Tags tags={tags} tagSlugs={tagSlugs} />
+        <Meta date={published_at} />
+        <Tags tags={tags} />
         <Author />
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={post.fields.slug} postTitle={post.frontmatter.title} />
+        <Comments postSlug={slug} postTitle={title} />
       </div>
     </div>
   );

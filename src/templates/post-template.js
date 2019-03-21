@@ -2,58 +2,45 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
+import { MetaData } from '../components/Meta';
 
-const PostTemplate = ({ data }) => {
-  const {
-    title: siteTitle,
-    subtitle: siteSubtitle
-  } = data.site.siteMetadata;
-
-  const {
-    title: postTitle,
-    description: postDescription
-  } = data.markdownRemark.frontmatter;
-
-  const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
+const PostTemplate = ({ data, location }) => {
+  const post = data.ghostPost;
 
   return (
-    <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
-      <Post post={data.markdownRemark} />
+    <>
+    <MetaData
+        data={data}
+        location={location}
+        type="article"
+    />
+    <Layout>
+      <Post post={post} />
     </Layout>
+    </>
   );
 };
 
-export const query = graphql`
-  query PostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        author {
-          name
-          contacts {
-            twitter
+export const postQuery = graphql`
+    query($slug: String!) {
+      site {
+        siteMetadata {
+          author {
+            name
+            contacts {
+              twitter
+            }
           }
+          disqusShortname
+          subtitle
+          title
+          url
         }
-        disqusShortname
-        subtitle
-        title
-        url
+      }
+      ghostPost(slug: { eq: $slug }) {
+        ...GhostPostFields
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        slug
-        tagSlugs
-      }
-      frontmatter {
-        date
-        description
-        tags
-        title
-      }
-    }
-  }
 `;
 
 export default PostTemplate;

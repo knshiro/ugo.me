@@ -1,16 +1,38 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 import styles from './Layout.module.scss';
 
-const Layout = ({ children, title, description }) => (
-  <div className={styles.layout}>
+const DefaultLayout = ({ data, children, }) => {
+  const site = data.allGhostSettings.edges[0].node;
+
+  return (
+  <>
     <Helmet>
-      <html lang="en" />
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      <html lang={site.lang} />
     </Helmet>
-    {children}
-  </div>
+    <div className={styles.layout}>
+      {children}
+    </div>
+  </>
+  );
+};
+
+const DefaultLayoutSettingsQuery = (props) => (
+  <StaticQuery
+      query={graphql`
+          query GhostSettings {
+              allGhostSettings {
+                  edges {
+                      node {
+                          ...GhostSettingsFields
+                      }
+                  }
+              }
+          }
+      `}
+      render={(data) => <DefaultLayout data={data} {...props} />}
+  />
 );
 
-export default Layout;
+export default DefaultLayoutSettingsQuery;

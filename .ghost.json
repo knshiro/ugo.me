@@ -1,0 +1,10 @@
+{
+  "development": {
+    "apiUrl": "https://ugo-me.herokuapp.com",
+    "contentApiKey": "479a6e55022f85b8b160375f6a"
+  },
+  "production": {
+    "apiUrl": "https://ugo-me.herokuapp.com",
+    "contentApiKey": "479a6e55022f85b8b160375f6a"
+  }
+}
