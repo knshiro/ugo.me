@@ -1,29 +1,29 @@
 'use strict';
 
 module.exports = {
-  siteUrl: `https://ugo-me.netlify.com`, // Site domain. Do not include a trailing slash!
+  siteUrl: `https://ugo.me`, // Site domain. Do not include a trailing slash!
 
   postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
-  siteTitleMeta: `Ghost Gatsby Starter`, // This allows an alternative site title for meta data for pages.
-  siteDescriptionMeta: `A starter template to build amazing static websites with Ghost and Gatbsy`, // This allows an alternative site description for meta data for pages.
+  siteTitleMeta: `Random thoughts by Ugo Bataillard`, // This allows an alternative site title for meta data for pages.
+  siteDescriptionMeta: `I make ideas into products and people into teams.`, // This allows an alternative site description for meta data for pages.
 
   shareImageWidth: 1000, // Change to the width of your default share image
   shareImageHeight: 523, // Change to the height of your default share image
 
-  shortTitle: "Ugo'sBlog", // Used for App manifest e.g. Mobile Home Screen
+  shortTitle: "Ugo's Blog", // Used for App manifest e.g. Mobile Home Screen
   siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
   backgroundColor: `#e9e9e9`, // Used for Offline Manifest
   themeColor: `#15171A`, // Used for Offline Manifest
 
 
   url: 'https://ugo-me.netlify.com',
-  title: 'Blog by Ugo Bataillard',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Random thoughts by Ugo Bataillard',
+  subtitle: 'I make ideas into products and people into teams.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
-  googleAnalyticsId: '',
+  googleAnalyticsId: 'UA-49012373-2',
   menu: [
     {
       label: 'Articles',
@@ -41,14 +41,14 @@ module.exports = {
   author: {
     name: 'Ugo Bataillard',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'I make ideas into products and people into teams.',
     contacts: {
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '#',
-      vkontakte: '#'
+      email: 'hi@ugo.me',
+      linkedin: 'https://www.linkedin.com/in/ugobataillard',
+      telegram: 'https://t.me/knshiro',
+      twitter: 'https://twitter.com/knshiro',
+      github: 'https://github.com/knshiro',
+      rss: '/rss'
     }
   }
 };
