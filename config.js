@@ -45,9 +45,9 @@ module.exports = {
     contacts: {
       email: 'hi@ugo.me',
       linkedin: 'https://www.linkedin.com/in/ugobataillard',
-      telegram: 'https://t.me/knshiro',
-      twitter: 'https://twitter.com/knshiro',
-      github: 'https://github.com/knshiro',
+      telegram: 'knshiro',
+      twitter: 'knshiro',
+      github: 'knshiro',
       rss: '/rss'
     }
   }
