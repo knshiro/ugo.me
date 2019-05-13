@@ -6,7 +6,7 @@ module.exports = {
   postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
   siteTitleMeta: `Random thoughts by Ugo Bataillard`, // This allows an alternative site title for meta data for pages.
-  siteDescriptionMeta: `I make ideas into products and people into teams.`, // This allows an alternative site description for meta data for pages.
+  siteDescriptionMeta: `I turn ideas into products and people into teams.`, // This allows an alternative site description for meta data for pages.
 
   shareImageWidth: 1000, // Change to the width of your default share image
   shareImageHeight: 523, // Change to the height of your default share image
@@ -19,7 +19,7 @@ module.exports = {
 
   url: 'https://ugo-me.netlify.com',
   title: 'Random thoughts by Ugo Bataillard',
-  subtitle: 'I make ideas into products and people into teams.',
+  subtitle: 'I turn ideas into products and people into teams.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -41,7 +41,7 @@ module.exports = {
   author: {
     name: 'Ugo Bataillard',
     photo: '/photo.jpg',
-    bio: 'I make ideas into products and people into teams.',
+    bio: 'I turn ideas into products and people into teams.',
     contacts: {
       email: 'hi@ugo.me',
       linkedin: 'https://www.linkedin.com/in/ugobataillard',
