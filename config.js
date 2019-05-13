@@ -17,7 +17,7 @@ module.exports = {
   themeColor: `#15171A`, // Used for Offline Manifest
 
 
-  url: 'https://ugo-me.netlify.com',
+  url: 'https://ugo.me',
   title: 'Random thoughts by Ugo Bataillard',
   subtitle: 'I turn ideas into products and people into teams.',
   copyright: '© All rights reserved.',
