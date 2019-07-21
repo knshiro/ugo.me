@@ -40,7 +40,7 @@ module.exports = {
   ],
   author: {
     name: 'Ugo Bataillard',
-    photo: '/photo.jpg',
+    photo: 'https://www.gravatar.com/avatar/543e2716aa915b98e60a69ea5067464c?s=200',
     bio: 'I turn ideas into products and people into teams.',
     contacts: {
       email: 'hi@ugo.me',
