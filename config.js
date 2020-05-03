@@ -46,7 +46,7 @@ module.exports = {
       email: 'hi@ugo.me',
       linkedin: 'https://www.linkedin.com/in/ugobataillard',
       telegram: 'knshiro',
-      twitter: 'knshiro',
+      twitter: 'UgoBataillard',
       github: 'knshiro',
       rss: '/rss'
     }
